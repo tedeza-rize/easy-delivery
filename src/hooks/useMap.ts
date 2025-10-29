@@ -48,6 +48,13 @@ export const useMap = () => {
     safeSetView(leafletMapRef.current, DEFAULT_CENTER, DEFAULT_ZOOM);
   };
 
+  /**
+   * 특정 좌표로 지도를 이동시키는 함수
+   */
+  const moveToLocation = (coords: LatLngTuple, zoom: number = DEFAULT_ZOOM) => {
+    safeSetView(leafletMapRef.current, coords, zoom);
+  };
+
   useEffect(() => {
     if (!mapRef.current) return;
 
@@ -121,5 +128,6 @@ export const useMap = () => {
     mapRef,
     handleZoomIn,
     handleZoomOut,
+    moveToLocation,
   };
 };

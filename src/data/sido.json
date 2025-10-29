@@ -1,0 +1,189 @@
+[
+  {
+    "sido_kr": "서울특별시",
+    "sido_en": "Seoul Special City",
+    "sido_ja": "ソウル特別市",
+    "sido_zh_hans": "首尔特别市",
+    "sido_zh_hant": "首爾特別市",
+    "office_kr": "서울특별시청 본청",
+    "office_en": "Seoul City Hall (Main Building)",
+    "latitude": 37.566205021936,
+    "longitude": 126.97770627907
+  },
+  {
+    "sido_kr": "부산광역시",
+    "sido_en": "Busan Metropolitan City",
+    "sido_ja": "釜山広域市",
+    "sido_zh_hans": "釜山广域市",
+    "sido_zh_hant": "釜山廣域市",
+    "office_kr": "부산광역시청 본관",
+    "office_en": "Busan Metropolitan City Hall (Main Building)",
+    "latitude": 35.1795543,
+    "longitude": 129.0756416
+  },
+  {
+    "sido_kr": "대구광역시",
+    "sido_en": "Daegu Metropolitan City",
+    "sido_ja": "大邱広域市",
+    "sido_zh_hans": "大邱广域市",
+    "sido_zh_hant": "大邱廣域市",
+    "office_kr": "대구광역시청 본관",
+    "office_en": "Daegu Metropolitan City Hall (Main Building)",
+    "latitude": 35.8714354,
+    "longitude": 128.601445
+  },
+  {
+    "sido_kr": "인천광역시",
+    "sido_en": "Incheon Metropolitan City",
+    "sido_ja": "仁川広域市",
+    "sido_zh_hans": "仁川广域市",
+    "sido_zh_hant": "仁川廣域市",
+    "office_kr": "인천광역시청 본관",
+    "office_en": "Incheon Metropolitan City Hall (Main Building)",
+    "latitude": 37.4562557,
+    "longitude": 126.7052062
+  },
+  {
+    "sido_kr": "광주광역시",
+    "sido_en": "Gwangju Metropolitan City",
+    "sido_ja": "光州広域市",
+    "sido_zh_hans": "光州广域市",
+    "sido_zh_hant": "光州廣域市",
+    "office_kr": "광주광역시청 본관",
+    "office_en": "Gwangju Metropolitan City Hall (Main Building)",
+    "latitude": 35.1595454,
+    "longitude": 126.8526012
+  },
+  {
+    "sido_kr": "대전광역시",
+    "sido_en": "Daejeon Metropolitan City",
+    "sido_ja": "大田広域市",
+    "sido_zh_hans": "大田广域市",
+    "sido_zh_hant": "大田廣域市",
+    "office_kr": "대전광역시청 본관",
+    "office_en": "Daejeon Metropolitan City Hall (Main Building)",
+    "latitude": 36.3504119,
+    "longitude": 127.3845475
+  },
+  {
+    "sido_kr": "울산광역시",
+    "sido_en": "Ulsan Metropolitan City",
+    "sido_ja": "蔚山広域市",
+    "sido_zh_hans": "蔚山广域市",
+    "sido_zh_hant": "蔚山廣域市",
+    "office_kr": "울산광역시청 본관",
+    "office_en": "Ulsan Metropolitan City Hall (Main Building)",
+    "latitude": 35.5383773,
+    "longitude": 129.3113596
+  },
+  {
+    "sido_kr": "세종특별자치시",
+    "sido_en": "Sejong Special Self-Governing City",
+    "sido_ja": "世宗特別自治市",
+    "sido_zh_hans": "世宗特别自治市",
+    "sido_zh_hant": "世宗特別自治市",
+    "office_kr": "세종특별자치시청 본청",
+    "office_en": "Sejong City Hall (Main Building)",
+    "latitude": 36.479795304066,
+    "longitude": 127.28895595715
+  },
+  {
+    "sido_kr": "경기도",
+    "sido_en": "Gyeonggi-do",
+    "sido_ja": "京畿道",
+    "sido_zh_hans": "京畿道",
+    "sido_zh_hant": "京畿道",
+    "office_kr": "경기도청 본청",
+    "office_en": "Gyeonggi Provincial Government (Main Office)",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "sido_kr": "강원특별자치도",
+    "sido_en": "Gangwon Special Self-Governing Province",
+    "sido_ja": "江原特別自治道",
+    "sido_zh_hans": "江原特别自治道",
+    "sido_zh_hant": "江原特別自治道",
+    "office_kr": "강원특별자치도청 본청",
+    "office_en": "Gangwon Special Self-Governing Provincial Government (Main Office)",
+    "latitude": 37.881582686659,
+    "longitude": 127.72924468299
+  },
+  {
+    "sido_kr": "충청북도",
+    "sido_en": "Chungcheongbuk-do (North Chungcheong Province)",
+    "sido_ja": "忠清北道",
+    "sido_zh_hans": "忠清北道",
+    "sido_zh_hant": "忠清北道",
+    "office_kr": "충청북도청 본관",
+    "office_en": "Chungcheongbuk-do Provincial Government (Main Office)",
+    "latitude": 36.635617767955,
+    "longitude": 127.49067691516
+  },
+  {
+    "sido_kr": "충청남도",
+    "sido_en": "Chungcheongnam-do (South Chungcheong Province)",
+    "sido_ja": "忠清南道",
+    "sido_zh_hans": "忠清南道",
+    "sido_zh_hant": "忠清南道",
+    "office_kr": "충청남도청 본청",
+    "office_en": "Chungcheongnam-do Provincial Government (Main Office)",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "sido_kr": "전북특별자치도",
+    "sido_en": "Jeonbuk Special Self-Governing Province",
+    "sido_ja": "全北特別自治道",
+    "sido_zh_hans": "全北特别自治道",
+    "sido_zh_hant": "全北特別自治道",
+    "office_kr": "전북특별자치도청 본관",
+    "office_en": "Jeonbuk Special Self-Governing Provincial Government (Main Office)",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "sido_kr": "전라남도",
+    "sido_en": "Jeollanam-do (South Jeolla Province)",
+    "sido_ja": "全羅南道",
+    "sido_zh_hans": "全罗南道",
+    "sido_zh_hant": "全羅南道",
+    "office_kr": "전라남도청 본관",
+    "office_en": "Jeollanam-do Provincial Government (Main Office)",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "sido_kr": "경상북도",
+    "sido_en": "Gyeongsangbuk-do (North Gyeongsang Province)",
+    "sido_ja": "慶尚北道",
+    "sido_zh_hans": "庆尚北道",
+    "sido_zh_hant": "慶尚北道",
+    "office_kr": "경상북도청 본관",
+    "office_en": "Gyeongsangbuk-do Provincial Government (Main Office)",
+    "latitude": 36.575044551313,
+    "longitude": 128.50882132707
+  },
+  {
+    "sido_kr": "경상남도",
+    "sido_en": "Gyeongsangnam-do (South Gyeongsang Province)",
+    "sido_ja": "慶尚南道",
+    "sido_zh_hans": "庆尚南道",
+    "sido_zh_hant": "慶尚南道",
+    "office_kr": "경상남도청 본관",
+    "office_en": "Gyeongsangnam-do Provincial Government (Main Office)",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "sido_kr": "제주특별자치도",
+    "sido_en": "Jeju Special Self-Governing Province",
+    "sido_ja": "済州特別自治道",
+    "sido_zh_hans": "济州特别自治道",
+    "sido_zh_hant": "濟州特別自治道",
+    "office_kr": "제주특별자치도청 본관",
+    "office_en": "Jeju Special Self-Governing Provincial Government (Main Office)",
+    "latitude": 33.489532978504,
+    "longitude": 126.49810441428
+  }
+]

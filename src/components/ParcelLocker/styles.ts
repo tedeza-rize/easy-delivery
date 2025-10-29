@@ -113,6 +113,18 @@ export const chipStyle: React.CSSProperties = {
   color: '#333333',
   whiteSpace: 'nowrap',
   boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+  cursor: 'pointer',
+  transition: 'all 0.2s ease',
+};
+
+/**
+ * 선택된 칩의 스타일
+ */
+export const chipSelectedStyle: React.CSSProperties = {
+  backgroundColor: '#1976d2',
+  color: '#ffffff',
+  border: '1px solid #1976d2',
+  fontWeight: 600,
 };
 
 /**

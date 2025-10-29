@@ -48,7 +48,7 @@ import {
  */
 
 const ParcelLocker: React.FC = () => {
-  const { mapRef, handleZoomIn, handleZoomOut } = useMap();
+  const { mapRef, handleZoomIn, handleZoomOut, moveToLocation } = useMap();
 
   return (
     <div style={wrapperStyle}>
@@ -58,7 +58,7 @@ const ParcelLocker: React.FC = () => {
       {/* 상단 검색 바 + 칩 영역 (네이버 지도 유사 오버레이) */}
       <div style={topOverlayWrapperStyle}>
         <SearchBar />
-        <CategoryChips />
+        <CategoryChips onSidoSelect={moveToLocation} />
       </div>
 
       {/* 우측 하단 확대/축소 컨트롤 */}
