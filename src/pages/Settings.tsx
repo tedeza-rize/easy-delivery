@@ -48,8 +48,6 @@ const lightTheme = {
   switchThumb: '#ffffff', // 스위치 동글(thumb)
 };
 
-// Theme 타입을 lightTheme 객체로부터 추론하여 생성합니다.
-type Theme = typeof lightTheme;
 
 const darkTheme = {
   // 다크 모드는 Toss Gray (#202632) 같은 깊은 남회색을 전체 배경으로 사용해 근사.
@@ -81,8 +79,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${(props: { theme: Theme }) => props.theme.backgroundPage};
-    color: ${(props: { theme: Theme }) => props.theme.textPrimary};
+    background-color: ${props => props.theme.backgroundPage};
+    color: ${props => props.theme.textPrimary};
 
     margin: 0;
     padding: 0;
@@ -117,7 +115,7 @@ const ListHeader = styled.h1`
   line-height: 35px;         /* Typography 2 line-height가 35로 제시됨.
   padding: 32px 16px 12px;   /* 상단 여백을 넉넉히 주어 breathing space 확보 */
   margin: 0;
-  color: ${(props: { theme: Theme }) => props.theme.textPrimary};
+  color: ${props => props.theme.textPrimary};
 `;
 
 /* 섹션 캡션 (예: "정보")
@@ -129,7 +127,7 @@ const ListSubHeader = styled.h2`
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
-  color: ${(props: { theme: Theme }) => props.theme.textSecondary};
+  color: ${props => props.theme.textSecondary};
   margin: 24px 16px 8px; /* 카드 묶음 사이 간격에서 자주 보이는 24px 정도의 수직 여백 */
 `;
 
@@ -144,9 +142,9 @@ const List = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0 16px 24px; /* 좌우 16px, 아래로 섹션 간 24px 간격 */
-  background-color: ${(props: { theme: Theme }) => props.theme.cardBg};
+  background-color: ${props => props.theme.cardBg};
   border-radius: 16px;
-  border: 1px solid ${(props: { theme: Theme }) => props.theme.cardBorder};
+  border: 1px solid ${props => props.theme.cardBorder};
   overflow: hidden;
 
   /* 카드가 약간 떠 있는 듯 보이는 아주 약한 음영.
@@ -168,11 +166,11 @@ const ListItem = styled.li`
   transition: background-color 0.2s ease;
 
   &:not(:last-child) {
-    border-bottom: 1px solid ${(props: { theme: Theme }) => props.theme.divider};
+    border-bottom: 1px solid ${props => props.theme.divider};
   }
 
   &:hover {
-    background-color: ${(props: { theme: Theme }) => props.theme.rowHoverBg};
+    background-color: ${props => props.theme.rowHoverBg};
   }
 `;
 
@@ -188,7 +186,7 @@ const LeftSection = styled.div`
  *   토스는 아이콘도 너무 진하지 않게 보이도록 적당한 회색 톤을 쓴다.
  */
 const IconWrapper = styled.div`
-  color: ${(props: { theme: Theme }) => props.theme.iconColor};
+  color: ${props => props.theme.iconColor};
   display: flex;
   align-items: center;
 `;
@@ -202,7 +200,7 @@ const Title = styled.span`
   font-size: 17px;
   font-weight: 500;
   line-height: 25.5px;
-  color: ${(props: { theme: Theme }) => props.theme.textPrimary};
+  color: ${props => props.theme.textPrimary};
 `;
 
 /* 오른쪽 섹션
@@ -213,7 +211,7 @@ const RightSection = styled.div`
   display: flex;
   align-items: center;
   gap: 8px; /* "한국어" 텍스트와 > 아이콘 사이 등 */
-  color: ${(props: { theme: Theme }) => props.theme.textSecondary};
+  color: ${props => props.theme.textSecondary};
   font-size: 15px;
   line-height: 22px;
   font-weight: 500;
@@ -223,7 +221,7 @@ const RightSection = styled.div`
 const ChevronWrapper = styled.div`
   display: flex;
   align-items: center;
-  color: ${(props: { theme: Theme }) => props.theme.chevronColor};
+  color: ${props => props.theme.chevronColor};
 `;
 
 /* -------------------------------------------------
@@ -253,7 +251,7 @@ const SwitchInput = styled.input`
 
   /* 체크(ON) 상태일 때 트랙 색을 theme.switchTrackOn 으로 */
   &:checked + span {
-    background-color: ${(props: { theme: Theme }) => props.theme.switchTrackOn};
+    background-color: ${props => props.theme.switchTrackOn};
   }
 
   /* 체크(ON) 상태일 때 thumb(동그라미)를 오른쪽으로 이동 */
@@ -271,7 +269,7 @@ const SwitchSlider = styled.span`
   right: 0;
   bottom: 0;
 
-  background-color: ${(props: { theme: Theme }) => props.theme.switchTrackOff}; /* OFF 상태 트랙 */
+  background-color: ${props => props.theme.switchTrackOff}; /* OFF 상태 트랙 */
   border-radius: 34px;
   transition: 0.4s;
 
@@ -283,7 +281,7 @@ const SwitchSlider = styled.span`
     left: 2px;
     bottom: 2px;
 
-    background-color: ${(props: { theme: Theme }) => props.theme.switchThumb}; /* thumb 색 (흰색) */
+    background-color: ${props => props.theme.switchThumb}; /* thumb 색 (흰색) */
     border-radius: 50%;
     transition: 0.4s;
   }
