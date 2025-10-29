@@ -1,73 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Moon, Sun, ChevronRight, Globe, Info, FileText } from 'lucide-react';
-
-/* -------------------------------------------------
- * 1. 색상 토큰 (토스 공개 팔레트 기반)
- *    - grey / blue 계열은 토스 디자인 시스템에서 정의된 값들을 사용한다.
- *    - brandBlue, tossGray 등은 브랜드 가이드에서 언급된 값이다.
- * ------------------------------------------------- */
-const tossColors = {
-  grey50: '#f9fafb',
-  grey100: '#f2f4f6',
-  grey200: '#e5e8eb',
-  grey300: '#d1d6db',
-  grey400: '#b0b8c1',
-  grey500: '#8b95a1',
-  grey600: '#6b7684',
-  grey700: '#4e5968',
-  grey800: '#333d4b',
-  grey900: '#191f28',
-
-  blue500: '#3182f6', // 토스 인터페이스에서 CTA/인터랙션 컬러 스케일 중 하나.
-  brandBlue: '#0064FF', // Toss Blue
-  tossGray: '#202632', // Toss Gray
-};
-
-/* -------------------------------------------------
- * 2. Light / Dark 테마 정의
- *    - lightTheme: 토스 앱 기본 화면 느낌
- *      page 배경은 grey100 (#f2f4f6), 카드 배경은 white, 텍스트 등.
- *    - darkTheme: Toss Gray 계열(#202632)을 베이스로 근사한 다크 톤.
- * ------------------------------------------------- */
-const lightTheme = {
-  backgroundPage: tossColors.grey100, // 화면 전체 배경 (회색 톤)
-  cardBg: '#ffffff', // 카드(섹션) 배경
-  cardBorder: tossColors.grey200, // 카드 외곽선
-  rowHoverBg: tossColors.grey50, // 행 hover 시 아주 옅은 회색 배경 (grey50: #f9fafb)
-
-  textPrimary: tossColors.grey900, // 거의 검정에 가까운 본문 컬러
-  textSecondary: tossColors.grey500, // 옅은 보조 텍스트
-  iconColor: tossColors.grey800, // 아이콘의 기본 컬러
-  chevronColor: tossColors.grey400, // 우측 화살표 등 보조 아이콘 컬러
-
-  divider: tossColors.grey200, // 행 사이 구분선
-
-  switchTrackOff: tossColors.grey300, // 스위치 OFF일 때 트랙 색
-  switchTrackOn: tossColors.blue500, // 스위치 ON일 때 트랙 색 (토스 블루 스케일)
-  switchThumb: '#ffffff', // 스위치 동글(thumb)
-};
-
-
-const darkTheme = {
-  // 다크 모드는 Toss Gray (#202632) 같은 깊은 남회색을 전체 배경으로 사용해 근사.
-  // cardBg 등은 한 톤 더 어둡거나 밝게 조정한다.
-  backgroundPage: tossColors.tossGray, // #202632
-  cardBg: '#2a303c', // 임의 근사값: tossGray보다 약간 더 밝은 카드 배경
-  cardBorder: tossColors.grey700, // 어두운 경계선 (#4e5968)
-  rowHoverBg: '#2f3542', // hover 시 살짝 밝게 (근사)
-
-  textPrimary: '#ffffff', // 다크에서 본문은 흰색
-  textSecondary: tossColors.grey500, // 회색 톤 텍스트 (#8b95a1)
-  iconColor: '#ffffff', // 아이콘은 흰색 계열
-  chevronColor: tossColors.grey600, // 약간 밝은 회색 아이콘 색 (#6b7684)
-
-  divider: tossColors.grey700, // 행 구분선 어두운 회색
-
-  switchTrackOff: tossColors.grey700, // 다크 모드에서 OFF 트랙은 어두운 회색
-  switchTrackOn: tossColors.blue500, // ON은 여전히 토스 블루 계열 강조
-  switchThumb: '#ffffff',
-};
+import { useSettings } from '../contexts/SettingsContext';
+import { lightTheme, darkTheme } from '../theme/theme';
 
 /* -------------------------------------------------
  * 3. 글로벌 스타일
@@ -307,8 +242,8 @@ const CustomSwitch: React.FC<{ checked: boolean; onChange: () => void }> = ({ ch
  *      회색 텍스트 + 옅은 회색 화살표로 토스식 설정 행 느낌을 준다.
  * ------------------------------------------------- */
 const Settings: React.FC = () => {
-  // 다크 모드 여부 상태값
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // Context에서 설정값 가져오기
+  const { isDarkMode, language, toggleDarkMode, setLanguage } = useSettings();
 
   // 현재 테마: isDarkMode 값에 따라 lightTheme 또는 darkTheme 적용
   const currentTheme = isDarkMode ? darkTheme : lightTheme;
@@ -326,8 +261,8 @@ const Settings: React.FC = () => {
         <List>
           {/* 다크 모드 토글 행 */}
           <ListItem
-            /* 행 전체를 클릭해도 토글되는 경험을 줄 수 있게 onClick에서 setState 호출 */
-            onClick={() => setIsDarkMode(!isDarkMode)}
+            /* 행 전체를 클릭해도 토글되는 경험을 줄 수 있게 onClick에서 toggleDarkMode 호출 */
+            onClick={toggleDarkMode}
           >
             <LeftSection>
               {/* 다크 모드 여부에 따라 Moon / Sun 아이콘을 토글.
@@ -349,7 +284,7 @@ const Settings: React.FC = () => {
               {/* 커스텀 스위치 (Toss Blue on, grey off) */}
               <CustomSwitch
                 checked={isDarkMode}
-                onChange={() => setIsDarkMode(!isDarkMode)}
+                onChange={toggleDarkMode}
               />
             </RightSection>
           </ListItem>
@@ -365,7 +300,7 @@ const Settings: React.FC = () => {
 
             {/* 오른쪽에는 현재 설정된 값("한국어")과 > 아이콘을 grey 계열로 표시 */}
             <RightSection>
-              <span>한국어</span>
+              <span>{language}</span>
               <ChevronWrapper>
                 <ChevronRight size={20} />
               </ChevronWrapper>

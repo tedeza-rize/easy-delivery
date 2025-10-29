@@ -1,15 +1,38 @@
 import { useState } from 'react';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import TabBar from './components/TabBar';
 import ParcelLocker from './pages/ParcelLocker';
 import ShipmentTracking from './pages/ShipmentTracking';
 import Settings from './pages/Settings';
+import { SettingsProvider, useSettings } from './contexts/SettingsContext';
+import { lightTheme, darkTheme } from './theme/theme';
 import './App.css'; // 기본 App.css 또는 커스텀 스타일
 
-function App() {
-  // 현재 활성화된 탭을 관리하는 상태. 기본값으로 'parcel' 설정.
-  const [activeTab, setActiveTab] = useState('parcel');
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${props => props.theme.backgroundPage};
+    color: ${props => props.theme.textPrimary};
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+`;
 
-  // activeTab 상태에 따라 렌더링할 컴포넌트를 결정하는 함수
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`;
+
+const ContentArea = styled.main`
+  flex-grow: 1;
+`;
+
+function AppContent() {
+  const [activeTab, setActiveTab] = useState('parcel');
+  const { isDarkMode } = useSettings();
+  const currentTheme = isDarkMode ? darkTheme : lightTheme;
+
   const renderContent = () => {
     switch (activeTab) {
       case 'parcel':
@@ -24,15 +47,23 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      {/* 선택된 탭에 맞는 콘텐츠를 보여주는 영역 */}
-      <main className="content-area">
-        {renderContent()}
-      </main>
+    <ThemeProvider theme={currentTheme}>
+      <GlobalStyle />
+      <AppContainer>
+        <ContentArea>
+          {renderContent()}
+        </ContentArea>
+        <TabBar activeTab={activeTab} onTabClick={setActiveTab} />
+      </AppContainer>
+    </ThemeProvider>
+  );
+}
 
-      {/* 하단 탭 바 */}
-      <TabBar activeTab={activeTab} onTabClick={setActiveTab} />
-    </div>
+function App() {
+  return (
+    <SettingsProvider>
+      <AppContent />
+    </SettingsProvider>
   );
 }
 
