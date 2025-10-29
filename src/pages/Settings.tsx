@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Moon, Sun, ChevronRight, Globe, Info, FileText } from 'lucide-react';
 import { useSettings } from '../contexts/SettingsContext';
 import { lightTheme, darkTheme } from '../theme/theme';
+import LanguageSelector from '../components/LanguageSelector';
 
 /* -------------------------------------------------
  * 3. 글로벌 스타일
@@ -245,6 +246,9 @@ const Settings: React.FC = () => {
   // Context에서 설정값 가져오기
   const { isDarkMode, language, toggleDarkMode, setLanguage } = useSettings();
 
+  // 언어 선택 모달 상태
+  const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
+
   // 현재 테마: isDarkMode 값에 따라 lightTheme 또는 darkTheme 적용
   const currentTheme = isDarkMode ? darkTheme : lightTheme;
 
@@ -290,7 +294,7 @@ const Settings: React.FC = () => {
           </ListItem>
 
           {/* 언어 선택 행 */}
-          <ListItem>
+          <ListItem onClick={() => setIsLanguageModalOpen(true)}>
             <LeftSection>
               <IconWrapper>
                 <Globe size={22} />
@@ -346,6 +350,14 @@ const Settings: React.FC = () => {
           </ListItem>
         </List>
       </SettingsContainer>
+
+      {/* 언어 선택 모달 */}
+      <LanguageSelector
+        isOpen={isLanguageModalOpen}
+        onClose={() => setIsLanguageModalOpen(false)}
+        currentLanguage={language}
+        onSelectLanguage={setLanguage}
+      />
     </ThemeProvider>
   );
 };
