@@ -15,6 +15,7 @@ import {
   isWithinBounds,
   safeSetView,
 } from '../utils/mapUtils';
+import { useSettings } from '../contexts/SettingsContext';
 
 /**
  * Leaflet 지도 초기화 및 관리를 위한 커스텀 훅
@@ -22,6 +23,7 @@ import {
 export const useMap = () => {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
+  const { isDarkMode } = useSettings();
 
   /**
    * 확대 버튼 클릭 처리 함수
@@ -123,6 +125,22 @@ export const useMap = () => {
       leafletMapRef.current = null;
     };
   }, []);
+
+  /**
+   * 다크모드에 따라 지도 타일에 CSS 필터 적용
+   */
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    const tilePane = mapRef.current.querySelector('.leaflet-tile-pane') as HTMLElement;
+    if (!tilePane) return;
+
+    if (isDarkMode) {
+      tilePane.style.filter = 'invert(1) hue-rotate(180deg) brightness(1.15) contrast(0.85) saturate(0.7)';
+    } else {
+      tilePane.style.filter = '';
+    }
+  }, [isDarkMode]);
 
   return {
     mapRef,
