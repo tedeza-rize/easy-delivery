@@ -95,12 +95,10 @@ const GlobalStyle = createGlobalStyle`
 /* -------------------------------------------------
  * 4. 레이아웃 컴포넌트
  *    - SettingsContainer:
- *      토스 앱은 모바일 기준 16px 좌우 패딩 / 400~480px 안쪽 폭의 카드 레이아웃이 많다.
- *      따라서 max-width를 480px으로 두고 화면 가운데 정렬한다.
+ *      토스 앱은 모바일 기준 16px 좌우 패딩
  * ------------------------------------------------- */
 const SettingsContainer = styled.div`
   width: 100%;
-  max-width: 480px;          /* 모바일 화면 폭 느낌을 웹에서도 유지 */
   margin: 0 auto;            /* 가운데 정렬 */
   padding-bottom: 40px;      /* 하단 여유 공간 */
 `;
@@ -343,11 +341,9 @@ const Settings: React.FC = () => {
             </LeftSection>
 
             <RightSection
-              /* 스위치의 경우는 별도 텍스트 없이 스위치만 오른쪽 정렬 */
               onClick={(e: React.MouseEvent) => {
-                // 부모 ListItem의 onClick(즉, toggle)과 중복되지 않도록
+                // 부모 ListItem의 onClick이 발생하지 않도록 차단
                 e.stopPropagation();
-                setIsDarkMode(!isDarkMode);
               }}
             >
               {/* 커스텀 스위치 (Toss Blue on, grey off) */}
